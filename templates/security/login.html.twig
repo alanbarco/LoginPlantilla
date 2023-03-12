@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Iniciar sesión{% endblock %}
+
+{% block body %}
+<section >
+<div class="container mt-5 pt-5">
+    <div class="row">
+      <div class="col-12 col-sm-7 col-md-6 m-auto">
+        <div class="card border-0 shadow">
+          <div class="card-body">
+           <h1 class="text-center font-weight-bold">Iniciar sesión</h1>
+            <form method="post">
+                <input placeholder="Correo electrónico" type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control my-4 py-2"  autocomplete="email" required autofocus>
+                <input placeholder="Contraseña" type="password" name="password" id="inputPassword" class="form-control my-4 py-2"  autocomplete="current-password" required>
+                
+                <input type="hidden" name="_csrf_token"
+                    value="{{ csrf_token('authenticate') }}"
+                >
+                <button class="btn btn-block btn-info" type="submit">
+                    Ingresar
+                </button>
+                <p>¿No tiene cuenta? <a href="{{path('app_register')}}">Registrarse</a></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
